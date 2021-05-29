@@ -20,10 +20,55 @@ class Grade extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.tealAccent[100],
       appBar: AppBar(
-        title: Text('ASH'),
+        title: Text('Profile'),
         backgroundColor: Colors.tealAccent[200],
         centerTitle: true,
         elevation: 0.0,
+
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu),
+        //   onPressed: () {
+        //     print('menu button is clicked');
+        //   },
+        // ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              print('Shopping button is clicked');
+            },
+          ),
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              print('Search button is clicked');
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/cat.jpeg'),
+                backgroundColor: Colors.white,
+              ),
+              accountName: Text('ASH'),
+              accountEmail: Text('hbd9425@gmail.com'),
+              onDetailsPressed: () {
+                print('arrow is clicked!');
+              },
+              decoration: BoxDecoration(
+                  color: Colors.red[200],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                  )),
+            )
+          ],
+        ),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 0, 0),
@@ -53,7 +98,7 @@ class Grade extends StatelessWidget {
               height: 10,
             ),
             Text(
-              'ash',
+              'Ark',
               style: TextStyle(
                   color: Colors.black,
                   letterSpacing: 2.0,
